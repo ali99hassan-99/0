@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>مركز أحلى الأسعار - الجبايش</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0; font-family: 'Tajawal', sans-serif;
+      background-color: #fff5f5; display: flex; flex-direction: column; align-items: center; padding-bottom: 80px;
+    }
+    .container {
+      background: white; padding: 25px; border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 420px; width: 90%; text-align: center; animation: fadeIn 0.6s ease; margin-top: 30px;
+    }
+    input, button {
+      width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; font-size: 16px; border: none; box-sizing: border-box;
+    }
+    input {
+      border: 2px solid crimson;
+    }
+    button {
+      background-color: crimson; color: white; font-weight: bold; cursor: pointer; transition: 0.3s;
+    }
+    button:hover {
+      background-color: #b80028;
+    }
+    .error {
+      color: red; font-size: 14px;
+    }
+    .notice {
+      background: #ffe5e5; padding: 10px; font-size: 14px; border-right: 4px solid crimson;
+      margin-top: 10px; text-align: right; line-height: 1.4;
+    }
+    .profile, .section-box {
+      display: none;
+    }
+    .user-bar {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; text-align: right;
+    }
+    .user-bar img {
+      width: 60px; height: 60px; border-radius: 50%; border: 2px solid crimson; object-fit: cover;
+    }
+    .user-info {
+      flex: 1; margin-right: 10px; text-align: right;
+    }
+    .user-info h3 {
+      margin: 0; color: crimson; font-weight: 700;
+    }
+    .user-info p {
+      margin: 2px 0; font-size: 14px; color: #444;
+    }
+    .menu-buttons button {
+      background-color: #f1f1f1; color: #333; border: 1px solid #ccc; margin: 8px 0; font-weight: 600; font-size: 16px;
+    }
+    .menu-buttons button:hover {
+      background-color: crimson; color: white;
+    }
+    .fixed-buttons {
+      position: fixed; bottom: 0; left: 0; right: 0; background: #fff; padding: 10px; border-top: 1px solid #ccc;
+      display: none; justify-content: space-between; z-index: 10; max-width: 420px; margin: auto; box-sizing: border-box;
+    }
+    .fixed-buttons button {
+      width: 48%; padding: 12px 0; font-weight: bold; font-size: 16px; border-radius: 8px; cursor: pointer;
+    }
+    .offer-box {
+      border: 1px solid #ccc; border-radius: 10px; padding: 15px; margin: 15px 0; background: #f9f9f9; text-align: right; direction: rtl;
+    }
+    .offer-box h3 {
+      margin: 0 0 10px; color: crimson; font-weight: 700; font-size: 20px;
+    }
+    .offer-detail {
+      display: flex; align-items: center; margin: 5px 0; font-size: 15px; gap: 8px;
+      justify-content: flex-start;
+    }
+    .offer-detail svg {
+      width: 22px; height: 22px; fill: #555;
+    }
+    .whatsapp-btn {
+      margin-top: 15px; background-color: #25D366; border: none; color: white;
+      padding: 12px 0; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1da851;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="loginBox">
+    <h2>تسجيل الدخول</h2>
+    <input type="text" id="codeInput" placeholder="رمز الدخول" />
+    <button onclick="login()">دخول</button>
+    <p class="error" id="errorMsg"></p>
+    <div class="notice" style="text-align:right; direction: rtl;">
+      بسبب سياسة الشركات وشكاوي أصحاب المحلات<br />
+      اضطررنا إلى أن نجعل لكل زبون يوزر خاص به.
+    </div>
+  </div>
+
+  <div class="container profile" id="profileBox">
+    <div class="user-bar">
+      <div class="user-info">
+        <h3 id="userName">اسم المستخدم</h3>
+        <p id="userPhone">رقم الهاتف</p>
+      </div>
+      <img id="userImage" src="" alt="صورة المستخدم" />
+    </div>
+
+    <div class="welcome-text" style="font-weight: 700; margin-bottom: 20px;">
+      أهلاً بك زبون أحلى الأسعار - الجبايش
+    </div>
+
+    <div class="menu-buttons">
+      <button onclick="openSection('asiacell')">🔴 عروض آسيا سيل</button>
+      <button>🟢 عروض زين كفو</button>
+      <button>🔵 عروض أودي</button>
+      <button>🟡 حاسبة الكوينات</button>
+      <button>🆘 طلب مساعدة</button>
+    </div>
+  </div>
+
+  <div class="container section-box" id="sectionBox">
+    <h3 id="sectionTitle">عروض آسيا سيل</h3>
+    <div id="sectionContent">جارٍ التحميل...</div>
+  </div>
+
+  <div class="fixed-buttons" id="fixedNav">
+    <button onclick="goBack()">🔙 رجوع</button>
+    <button onclick="goHome()">🏠 القائمة الرئيسية</button>
+  </div>
+
+<script>
+  const whatsappNumber = "+9647712504488";
+  let usersData = [];
+
+  const appIcons = {
+    "WhatsApp": `<svg viewBox="0 0 24 24"><path d="M20.52 3.48a11.87 11.87 0 00-16.77 0 11.87 11.87 0 00-3.5 8.44 11.9 11.9 0 001.7 6l-1.7 6 6-1.7a11.89 11.89 0 006 1.7 11.87 11.87 0 008.44-3.5 11.87 11.87 0 000-16.74zM12 20a8 8 0 110-16 8 8 0 010 16zm3.6-10.4c-.2-.15-1.15-.55-1.3-.6-.15-.05-.25-.05-.35.05-.1.1-.4.6-.5.7-.1.1-.2.1-.4 0-.2-.15-.9-.3-1.7-1.1-.6-.55-1-.9-1.1-1.15-.1-.25 0-.4 0-.55 0-.15-.4-1.2-.6-1.65-.15-.45-.35-.4-.5-.4-.15 0-.3 0-.45 0s-.6.2-.9.6a3.3 3.3 0 00-1.2 2.95c0 .15 0 .3.15.45.15.15 1.3 2 3.15 2.75 1.85.75 1.85.5 2.2.45.35-.05 1.1-.45 1.25-.9.15-.4.15-.7.1-.75z"/></svg>`,
+    "Facebook": `<svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.87v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.15 1.8.15v2h-1c-1 0-1.3.6-1.3 1.2V12h2.2l-.35 3h-1.85v7A10 10 0 0022 12z"/></svg>`,
+    "Messenger": `<svg viewBox="0 0 24 24"><path d="M2 3v18l4-4h14V3H2z"/></svg>`,
+    "Instagram": `<svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm4.25 4.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm5.75-.5a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z"/></svg>`,
+    "Snapchat": `<svg viewBox="0 0 24 24"><path d="M12 2s-4.5 0-6 2.25S4 11 4 12.5 6 16 12 16s8-2.75 8-3.5-1.5-7.25-8-7.25z"/></svg>`,
+    "TikTok": `<svg viewBox="0 0 24 24"><path d="M9 2v14c0 3 5 3 5 0V6h3V2h-8z"/></svg>`,
+    "YouTube": `<svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zM21.8 7.17a3 3 0 00-2.1-2.1C17.74 4.5 12 4.5 12 4.5s-5.74 0-7.7.57a3 3 0 00-2.1 2.1c-.33 1.37-.33 4.24-.33 4.24s0 2.87.33 4.24a3 3 0 002.1 2.1c1.96.57 7.7.57 7.7.57s5.74 0 7.7-.57a3 3 0 002.1-2.1c.33-1.37.33-4.24.33-4.24s0-2.87-.33-4.24z"/></svg>`,
+    "viber": `<svg viewBox="0 0 24 24"><path d="M6 2h12v20H6z"/></svg>`
+  };
+
+  const appNameMap = {
+    "WhatsApp": "واتساب",
+    "Facebook": "فيسبوك",
+    "Messenger": "مسنجر",
+    "Instagram": "انستغرام",
+    "Snapchat": "سناب شات",
+    "TikTok": "تيك توك",
+    "YouTube": "يوتيوب",
+    "viber": "فايبر"
+  };
+
+  fetch("users.json")
+    .then(res => res.json())
+    .then(data => window.usersData = data);
+
+  function login() {
+    const code = document.getElementById("codeInput").value.trim();
+    const user = window.usersData.find(u => u.code === code);
+    const error = document.getElementById("errorMsg");
+
+    if (user) {
+      document.getElementById("userName").textContent = user.name;
+      document.getElementById("userPhone").textContent = user.phone;
+      document.getElementById("userImage").src = "images/" + user.image;
+
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("profileBox").style.display = "block";
+      error.textContent = "";
+    } else {
+      error.textContent = "رمز الدخول غير صحيح.";
+    }
+  }
+
+  function getRenewalLabel(priceObj, duration) {
+    if ('monthly' in priceObj) return "التجديد الشهري";
+    if ('weekly' in priceObj) return "التجديد الأسبوعي";
+    return `مدة الاشتراك: ${duration}`;
+  }
+
+  function openSection(type) {
+    document.getElementById("profileBox").style.display = "none";
+    document.getElementById("sectionBox").style.display = "block";
+    document.getElementById("fixedNav").style.display = "flex";
+
+    if (type === "asiacell") {
+      fetch("asiacell.json")
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById("sectionContent");
+          container.innerHTML = "";
+
+          data.forEach(item => {
+            const box = document.createElement("div");
+            box.className = "offer-box";
+
+            const appsHtml = (item.free_apps && item.free_apps.length > 0)
+              ? item.free_apps.map(app => {
+                  const arabicName = appNameMap[app] || app;
+                  const iconSvg = appIcons[app] || "";
+                  return `<div class="offer-detail">${iconSvg}<span>${arabicName}</span></div>`;
+                }).join("")
+              : '<div class="offer-detail" style="color: #888;">لا تشمل تطبيقات مجانية.</div>';
+
+            const price = item.price.monthly || item.price.weekly || "";
+            const renewalLabel = getRenewalLabel(item.price, item.duration);
+            const multiMonthPrice = item.multi_month_price
+              ? `<div class="offer-detail" style="font-weight:bold; color: crimson; margin-top:8px;">
+                   ثلاثة أشهر: <span>${item.multi_month_price}</span>
+                 </div>`
+              : "";
+
+            box.innerHTML = `
+              <h3>${item.title}</h3>
+              <div class="offer-detail"><strong>الكوينات:</strong> ${item.coins}</div>
+              <div class="offer-detail"><strong>الرسائل المجانية:</strong> ${item.free_messages}</div>
+              <div class="offer-detail"><strong>ما يعادلها:</strong></div>
+              <div class="offer-detail" style="padding-right: 18px;">
+                - الإنترنت: ${item.equivalent.internet}
+              </div>
+              <div class="offer-detail" style="padding-right: 18px;">
+                - الدقائق: ${item.equivalent.minutes}
+              </div>
+              <div class="offer-detail"><strong>مدة الاشتراك:</strong> ${item.duration}</div>
+              <div class="offer-detail" style="font-weight:bold;">
+                ${renewalLabel}: <span>${price}</span>
+              </div>
+              ${multiMonthPrice}
+              ${appsHtml}
+              <div class="offer-detail" style="color: ${item.note && item.note.startsWith('✅') ? 'green' : 'red'}; font-weight: 600; margin-top: 8px; text-align: right;">
+                ${item.note || ""}
+              </div>
+              <button class="whatsapp-btn">استفسر عبر واتساب</button>
+            `;
+
+            box.querySelector(".whatsapp-btn").addEventListener("click", () => {
+              const message =
+                `السلام عليكم، أود الاستفسار عن العرض التالي:\n` +
+                `*${item.title}*\n` +
+                `الكوينات: ${item.coins}\n` +
+                `الرسائل المجانية: ${item.free_messages}\n` +
+                `ما يعادلها:\n` +
+                `- الإنترنت: ${item.equivalent.internet}\n` +
+                `- الدقائق: ${item.equivalent.minutes}\n` +
+                `مدة الاشتراك: ${item.duration}\n` +
+                `${renewalLabel}: ${price}\n` +
+                `${item.multi_month_price ? `ثلاثة أشهر: ${item.multi_month_price}\n` : ''}` +
+                `${item.note ? `ملاحظة: ${item.note}` : ''}`;
+
+              const url = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
+              window.open(url, "_blank");
+            });
+
+            container.appendChild(box);
+          });
+        })
+        .catch(() => {
+          document.getElementById("sectionContent").innerHTML = "تعذر تحميل العروض.";
+        });
+    }
+  }
+
+  function goBack() {
+    document.getElementById("sectionBox").style.display = "none";
+    document.getElementById("fixedNav").style.display = "none";
+    document.getElementById("profileBox").style.display = "block";
+  }
+  function goHome() {
+    document.getElementById("sectionBox").style.display = "none";
+    document.getElementById("fixedNav").style.display = "none";
+    document.getElementById("profileBox").style.display = "block";
+  }
+</script>
+
+</body>
+</html>

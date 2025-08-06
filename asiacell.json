@@ -1,0 +1,128 @@
+[
+  {
+    "title": "باقة يوز 10",
+    "coins": "25,000 كوين",
+    "free_messages": "50 رسالة مجانية",
+    "equivalent": {
+      "internet": "6.25 جيجابايت",
+      "minutes": "208 دقيقة (3 ساعات و28 دقيقة)"
+    },
+    "price": {
+      "monthly": "10,000 دينار"
+    },
+    "duration": "20 يومًا",
+    "free_apps": [],
+    "note": "لا تشمل تطبيقات مجانية.",
+    "multi_month_price": null
+  },
+  {
+    "title": "الباقة الأسبوعية يوز 5",
+    "coins": "12,500 كوين",
+    "free_messages": "25 رسالة مجانية",
+    "equivalent": {
+      "internet": "3.12 جيجابايت",
+      "minutes": "104 دقائق (1 ساعة و44 دقيقة)"
+    },
+    "price": {
+      "weekly": "5,000 دينار"
+    },
+    "duration": "7 أيام",
+    "free_apps": [],
+    "note": "لا تشمل تطبيقات مجانية.",
+    "multi_month_price": null
+  },
+  {
+    "title": "الباقة الشهرية يوز 15",
+    "coins": "45,000 كوين",
+    "free_messages": "100 رسالة مجانية",
+    "equivalent": {
+      "internet": "11.25 جيجابايت",
+      "minutes": "375 دقائق (6 ساعات و15 دقيقة)"
+    },
+    "price": {
+      "monthly": "15,000 دينار"
+    },
+    "duration": "30 يومًا",
+    "free_apps": [
+      "WhatsApp",
+      "Facebook",
+      "Messenger",
+      "Instagram",
+      "Snapchat"
+    ],
+    "note": "✅ يمكنك استخدام الدقائق للاتصال على جميع الشبكات.",
+    "multi_month_price": "30,000 دينار"
+  },
+  {
+    "title": "الباقة الشهرية يوز 20",
+    "coins": "72,000 كوين",
+    "free_messages": "100 رسالة مجانية",
+    "equivalent": {
+      "internet": "18 جيجابايت",
+      "minutes": "600 دقائق (10 ساعات)"
+    },
+    "price": {
+      "monthly": "20,000 دينار"
+    },
+    "duration": "30 يومًا",
+    "free_apps": [
+      "WhatsApp",
+      "Facebook",
+      "Messenger",
+      "Instagram",
+      "Snapchat",
+      "viber"
+    ],
+    "note": "✅ يمكنك استخدام الدقائق للاتصال على جميع الشبكات.",
+    "multi_month_price": "40,000 دينار"
+  },
+  {
+    "title": "الباقة الشهرية يوز 25",
+    "coins": "108,000 كوين",
+    "free_messages": "200 رسالة مجانية",
+    "equivalent": {
+      "internet": "27 جيجابايت",
+      "minutes": "900 دقائق (15 ساعة)"
+    },
+    "price": {
+      "monthly": "25,000 دينار"
+    },
+    "duration": "30 يومًا",
+    "free_apps": [
+      "WhatsApp",
+      "Facebook",
+      "Messenger",
+      "Instagram",
+      "TikTok",
+      "Snapchat",
+      "viber"
+    ],
+    "note": "✅ يمكنك استخدام الدقائق للاتصال على جميع الشبكات.",
+    "multi_month_price": "50,000 دينار"
+  },
+  {
+    "title": "الباقة الشهرية يوز 30",
+    "coins": "144,000 كوين",
+    "free_messages": "200 رسالة مجانية",
+    "equivalent": {
+      "internet": "36 جيجابايت",
+      "minutes": "1,200 دقيقة (20 ساعة)"
+    },
+    "price": {
+      "monthly": "30,000 دينار"
+    },
+    "duration": "30 يومًا",
+    "free_apps": [
+      "WhatsApp",
+      "Facebook",
+      "Messenger",
+      "Instagram",
+      "TikTok",
+      "Snapchat",
+      "YouTube",
+      "viber"
+    ],
+    "note": "✅ يمكنك استخدام الدقائق للاتصال على جميع الشبكات.",
+    "multi_month_price": "60,000 دينار"
+  }
+]
